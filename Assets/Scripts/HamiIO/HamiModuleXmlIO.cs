@@ -6,28 +6,30 @@ namespace HamiIO
 {
     public class HamiModuleXmlIO
     {
-        public static T Read<T>(string fileName) where T : class
+        public static T Read<T>(string folderName, string fileName) where T : class
         {
-            if (!File.Exists($"{CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml"))
+            if (!File.Exists($"{CONSTS.__FULL_PATH_TO_RESOURCES}\\{folderName}\\{fileName}.xml"))
                 return null;
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
             return xmlSerializer.Deserialize(
-                new StringReader(File.ReadAllText($"{CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml"))) as T;
+                    new StringReader(
+                        File.ReadAllText($"{CONSTS.__FULL_PATH_TO_RESOURCES}\\{folderName}\\{fileName}.xml")))
+                as T;
         }
 
-        public static void Write<T>(string fileName, T toSerialize)
+        public static void Write<T>(string folderName, string fileName, T toSerialize)
         {
-            if (!Directory.Exists(CONSTS.__PROJECT_PATH_IN_RESOURCES))
-                Directory.CreateDirectory(CONSTS.__PROJECT_PATH_IN_RESOURCES);
+            if (!Directory.Exists(CONSTS.__FULL_PATH_TO_RESOURCES))
+                Directory.CreateDirectory(CONSTS.__FULL_PATH_TO_RESOURCES);
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-            var write = new StreamWriter($"{CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml");
+            var write = new StreamWriter($"{CONSTS.__FULL_PATH_TO_RESOURCES}\\{folderName}\\{fileName}.xml");
             xmlSerializer.Serialize(write.BaseStream, toSerialize);
             write.Close();
-            
-            MonoBehaviour.print($"Xml successfully has been written in {CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml");
+
+            MonoBehaviour.print(
+                $"Xml successfully has been written in {CONSTS.__FULL_PATH_TO_RESOURCES}\\{folderName}\\{fileName}.xml");
         }
-        
     }
 }

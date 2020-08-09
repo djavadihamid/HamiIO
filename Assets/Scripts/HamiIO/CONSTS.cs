@@ -4,13 +4,9 @@ namespace HamiIO
 {
     public class CONSTS
     {
-        public static readonly string __PROJECT_PATH_IN_RESOURCES =
-            $"{Application.dataPath}\\Resources\\Modules\\{ProjectName()}\\";
+        public static readonly string __PATH_WITHIN_RESOURCES = $"Modules\\";
 
-        public static string ProjectName()
-        {
-            string[] s = Application.dataPath.Split('/');
-            return s[s.Length - 2];
-        }
+        public static readonly string __FULL_PATH_TO_RESOURCES =
+            $"{Application.dataPath}\\Resources\\{__PATH_WITHIN_RESOURCES}";
     }
 }
