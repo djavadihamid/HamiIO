@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace HamiModuleXmlIO
+namespace HamiIO
 {
     public class HamiXmlIO
     {
