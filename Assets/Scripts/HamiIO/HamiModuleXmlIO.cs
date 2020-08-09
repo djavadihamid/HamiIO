@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using UnityEngine;
 
 namespace HamiIO
 {
@@ -24,6 +25,8 @@ namespace HamiIO
             var write = new StreamWriter($"{CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml");
             xmlSerializer.Serialize(write.BaseStream, toSerialize);
             write.Close();
+            
+            MonoBehaviour.print($"Xml successfully has been written in {CONSTS.__PROJECT_PATH_IN_RESOURCES}{fileName}.xml");
         }
         
     }
