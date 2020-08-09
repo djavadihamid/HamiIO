@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace HamiIO
 {
-    public class HamiXmlIO
+    public class HamiModuleXmlIO
     {
         public static T Read<T>(string fileName) where T : class
         {
