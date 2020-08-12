@@ -7,8 +7,8 @@ namespace HamiIO
     {
         public static void Write(string folderPath, string fileName, string[] items)
         {
-            string basePath     = CONSTS.__FULL_PATH_TO_RESOURCES;
-            string completePath = $"{basePath}{folderPath}\\{fileName}.cs";
+            string basePath     = CONSTS.__FULL_PATH_TO_RESOURCES + folderPath;
+            string completePath = $"{basePath}\\{fileName}.cs";
             if (!Directory.Exists(basePath)) Directory.CreateDirectory(basePath);
             if (!File.Exists(completePath)) File.Create(completePath).Close();
             File.WriteAllText(completePath, $"public enum {fileName}\n{{\n\t {string.Join(",\n\t", items)} \n}}");
