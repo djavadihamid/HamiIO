@@ -20,5 +20,11 @@ namespace HamiIO
             if (!FileChecker.HasJson(folderPath, $"{fileName}JSON")) return null;
             return File.ReadAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}JSON.json");
         }
+
+        public static T Read<T>(string folderPath, string fileName) where T : class
+        {
+            if (!FileChecker.HasJson(folderPath, $"{fileName}JSON")) return null;
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}JSON.json"));
+        }
     }
 }
