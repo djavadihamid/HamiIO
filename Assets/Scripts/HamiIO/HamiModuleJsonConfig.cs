@@ -8,11 +8,17 @@ namespace HamiIO
     {
         public static void Write<T>(string folderPath, string fileName, T obj)
         {
-            FileChecker.CheckJson(folderPath, fileName);
+            FileChecker.HasJson(folderPath, fileName, true);
             File.WriteAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}.json",
                               JsonConvert.SerializeObject(obj, Formatting.Indented)
                              );
             MonoBehaviour.print($@"Json has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}");
+        }
+
+        public static string Read(string folderPath, string fileName)
+        {
+            if (!FileChecker.HasJson(folderPath, fileName)) return null;
+            return File.ReadAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}.json");
         }
     }
 }
