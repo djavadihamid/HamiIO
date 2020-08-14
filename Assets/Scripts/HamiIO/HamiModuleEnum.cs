@@ -20,5 +20,11 @@ namespace HamiIO
         {
             return File.Exists($"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderName}\\E{fileName}.cs");
         }
+
+	public static void CreateEmptyIfNotExist(string folderName, string fileName)
+        {
+            if (Has(folderName, fileName)) return;
+            Write(folderName, fileName, new[] {""});
+        }
     }
 }
