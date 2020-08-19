@@ -9,40 +9,26 @@ namespace HamiIO
         public static void WriteModel(string folderPath,
             string fileName,
             PropertiesModel[] properties,
-            string nameSpace = null,
-            string parent = null
+            string nameSpace = null
         )
         {
             FileChecker.HasCs(folderPath, fileName, true);
             string content = "";
-            AddAndBreak(ref content, new[]
-            {
-                $"namespace {nameSpace}{{",
-                $"public class {fileName}{{",
-            });
-
+            if (!string.IsNullOrEmpty(nameSpace)) content += $"namespace {nameSpace}{{ \n";
+            content += $"public class {fileName}{{\n\n";
             foreach (PropertiesModel modelPropertiese in properties)
             {
-                AddAndBreak(ref content, new[]
-                {
-                    modelPropertiese.Attribute,
-                    $"public {modelPropertiese.Type} {modelPropertiese.Name};"
-                });
+                content += string.IsNullOrEmpty(modelPropertiese.Attribute)
+                    ? null
+                    : $"\t[{modelPropertiese.Attribute}]\n";
+                content += $"\tpublic {modelPropertiese.Type} {modelPropertiese.Name};\n\n";
             }
 
+            content += string.IsNullOrEmpty(nameSpace) ? "}" : "}\n}";
             FileChecker.HasCs(folderPath + @"\Model", fileName, true);
             File.WriteAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\Model\{fileName}.cs", content);
             MonoBehaviour.print(
                 $@"CS has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\Model\{fileName}");
-        }
-
-        private static void AddAndBreak(ref string reference, string[] toAdd)
-        {
-            foreach (string s in toAdd)
-            {
-                if (string.IsNullOrEmpty(s)) return;
-                reference += s + "\n";
-            }
         }
     }
 }
