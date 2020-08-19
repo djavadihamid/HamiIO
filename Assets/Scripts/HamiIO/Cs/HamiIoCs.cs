@@ -10,12 +10,13 @@ namespace HamiIO
         public static void WriteModel(string folderPath,
             string fileName,
             PropertiesModel[] properties,
-            string nameSpace = null
+            string nameSpace = null,
+            string parent = null
         )
         {
             FileChecker.HasCs(folderPath + @"\Model", fileName, true);
             File.WriteAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\Model\{fileName}.cs",
-                GenerateBody(fileName, nameSpace, properties, null));
+                GenerateBody(fileName, nameSpace, properties, null, parent: parent));
             MonoBehaviour.print(
                 $@"CS has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\Model\{fileName}");
         }
