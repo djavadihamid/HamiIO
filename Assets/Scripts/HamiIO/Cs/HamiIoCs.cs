@@ -92,6 +92,10 @@ namespace HamiIO
             if (methods != null)
                 foreach (MethodsModel method in methods)
                 {
+                    foreach (var s in method.Attribute)
+                        AddTxt(ref content, s, 1, 0, true);
+
+
                     AddTxt(ref content, method.AccessModifier.ToString().ToLower(), 0, 1);
                     if (method.IsStatic) AddTxt(ref content, "static");
                     else

@@ -9,5 +9,6 @@
         public bool IsOverride;
         public bool IsVirtual;
         public bool IsStatic;
+        public string[] Attribute;
     }
 }
