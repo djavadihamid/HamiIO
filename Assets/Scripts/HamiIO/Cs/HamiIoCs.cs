@@ -38,32 +38,6 @@ namespace HamiIO
                 $@"CS has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}");
         }
 
-        [MenuItem("hemiammid/asdasd")]
-        public static void Generate()
-        {
-            GenerateClass("folder", "HamiUrl", "Daddclass", "thi.name.s.a",
-                new[]
-                {
-                    new PropertiesModel
-                    {
-                        Name = "thisProperry",
-                        Type = "int"
-                    }
-                },
-                new[]
-                {
-                    new MethodsModel
-                    {
-                        Name = "Up",
-                        Arguments = null,
-                        AccessModifier = AccessModifiers.Public,
-                        ReturnType = "void",
-                        IsOverride = false
-                    }
-                }
-            );
-        }
-
         private static string GenerateBody(
             string fileName,
             string nameSpace,
@@ -119,7 +93,10 @@ namespace HamiIO
 
                     AddTxt(ref content, ")", 1);
                     AddTxt(ref content, "{", 1, 1);
-                    AddTxt(ref content, "throw new System.NotImplementedException();", 1, 2);
+                    if (string.IsNullOrEmpty(method.Body))
+                        AddTxt(ref content, "throw new System.NotImplementedException();", 1, 2);
+                    else
+                        AddTxt(ref content, method.Body, 1, 2);
                     AddTxt(ref content, "}", 1, 1);
                 }
 

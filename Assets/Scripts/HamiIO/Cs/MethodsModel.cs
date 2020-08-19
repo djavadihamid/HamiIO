@@ -10,5 +10,6 @@
         public bool IsVirtual;
         public bool IsStatic;
         public string[] Attribute;
+        public string Body;
     }
 }
