@@ -30,6 +30,7 @@ namespace HamiIO
                 });
             }
 
+            FileChecker.HasCs(@"Model\" + folderPath, fileName, true);
             File.WriteAllText($@"{CONSTS.__FULL_PATH_TO_RESOURCES}Model\{folderPath}\{fileName}.cs", content);
             MonoBehaviour.print($@"CS has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}");
         }
