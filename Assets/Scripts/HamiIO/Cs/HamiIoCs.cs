@@ -97,7 +97,7 @@ namespace HamiIO
                     if (string.IsNullOrEmpty(method.Body))
                         AddTxt(ref content, "throw new System.NotImplementedException();", 1, 2);
                     else
-                        AddTxt(ref content, method.Body, 1, 2);
+                        AddTxt(ref content, method.Body, 1, 1);
                     AddTxt(ref content, "}", 1, 1);
                 }
 
