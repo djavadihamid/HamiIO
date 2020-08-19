@@ -12,7 +12,7 @@ namespace HamiIO
             string nameSpace = null
         )
         {
-            FileChecker.HasCs(folderPath, fileName, true);
+            FileChecker.HasCs(folderPath + @"\Model", fileName, true);
             string content = "";
             if (!string.IsNullOrEmpty(nameSpace)) content += $"namespace {nameSpace}{{ \n";
             content += $"public class {fileName}{{\n\n";
