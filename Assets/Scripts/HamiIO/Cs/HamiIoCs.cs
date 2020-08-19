@@ -21,7 +21,9 @@ namespace HamiIO
                 content += string.IsNullOrEmpty(modelPropertiese.Attribute)
                     ? null
                     : $"\t[{modelPropertiese.Attribute}]\n";
-                content += $"\tpublic {modelPropertiese.Type} {modelPropertiese.Name};\n\n";
+                content += string.IsNullOrEmpty(modelPropertiese.Type) || string.IsNullOrEmpty(modelPropertiese.Name)
+                    ? null
+                    : $"\tpublic {modelPropertiese.Type} {modelPropertiese.Name};\n\n";
             }
 
             content += string.IsNullOrEmpty(nameSpace) ? "}" : "}\n}";
