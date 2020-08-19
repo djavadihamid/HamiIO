@@ -61,7 +61,10 @@ namespace HamiIO
                     AddTxt(ref content, "public", 0, 1);
                     AddTxt(ref content, modelPropertiese.Type);
                     AddTxt(ref content, modelPropertiese.Name);
-                    AddTxt(ref content, ";", 2);
+                    if (modelPropertiese.AutoProperty)
+                        AddTxt(ref content, "{ get; set; }");
+                    else
+                        AddTxt(ref content, ";", 2);
                 }
 
             if (methods != null)
