@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using UnityEngine;
 
 namespace HamiIO
 {
@@ -21,7 +22,10 @@ namespace HamiIO
             {
                 foreach (string exception in exceptions)
                     if (!file.Name.Contains(exception))
+                    {
                         file.Delete();
+                        MonoBehaviour.print($"{file.FullName} has been deleted");
+                    }
             }
         }
     }
