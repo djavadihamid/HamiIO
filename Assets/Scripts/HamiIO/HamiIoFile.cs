@@ -18,8 +18,11 @@ namespace HamiIO
             if (!Directory.Exists(CONSTS.__FULL_PATH_TO_RESOURCES + folder)) return;
             DirectoryInfo di = new DirectoryInfo(CONSTS.__FULL_PATH_TO_RESOURCES + folder);
             foreach (FileInfo file in di.GetFiles())
-                if (!exceptions.Contains(file.Name))
-                    file.Delete();
+            {
+                foreach (string exception in exceptions)
+                    if (!file.Name.Contains(exception))
+                        file.Delete();
+            }
         }
     }
 }
