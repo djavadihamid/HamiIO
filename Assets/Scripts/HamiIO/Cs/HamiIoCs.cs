@@ -39,6 +39,9 @@ namespace HamiIO
                 $@"CS has been created in {CONSTS.__FULL_PATH_TO_RESOURCES}{folderPath}\{fileName}");
         }
 
+        public static bool Has(string folderPath, string fileName) =>
+            FileChecker.HasCs(folderPath, fileName);
+
         private static string GenerateBody(
             string fileName,
             string nameSpace,
