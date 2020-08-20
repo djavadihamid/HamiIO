@@ -20,12 +20,18 @@ namespace HamiIO
             DirectoryInfo di = new DirectoryInfo(CONSTS.__FULL_PATH_TO_RESOURCES + folder);
             foreach (FileInfo file in di.GetFiles())
             {
+                bool existBefore = false;
                 foreach (string exception in exceptions)
-                    if (!file.Name.Contains(exception))
+                    if (file.Name.Contains(exception))
                     {
-                        file.Delete();
-                        MonoBehaviour.print($"{file.FullName} has been deleted");
+                        existBefore = true;
                     }
+
+                if (!existBefore)
+                {
+                    file.Delete();
+                    MonoBehaviour.print($"{file.FullName} has been deleted");
+                }
             }
         }
     }
