@@ -1,0 +1,1 @@
+"namespace thi/name/s/a{ \npublic class HamiUrl{ \n\n\t[thisAttribute]\n\tpublic int thisProperry ; \n\n\tpublic override void Up ( ) \n\t{ \n\t\tthrow new NotImplementedException(); \n\t} \n"
