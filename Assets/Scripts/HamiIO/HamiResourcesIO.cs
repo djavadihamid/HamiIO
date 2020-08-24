@@ -5,7 +5,7 @@ namespace HamiIO
 {
     public class HamiResourcesIO
     {
-        public static T LoadJSON<T>(string folderPath, string fileName) where T : Object
+        public static T LoadJSON<T>(string folderPath, string fileName)
         {
             return
                 JsonConvert
