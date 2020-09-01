@@ -85,7 +85,7 @@ namespace HamiIO
                                 AddTxt(ref content, $"={modelPropertiese.Value};", 2);
                                 break;
                         }
-                    }
+                    } 
                     else
                         AddTxt(ref content, ";", 2);
                 }
