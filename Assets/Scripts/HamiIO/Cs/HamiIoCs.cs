@@ -73,7 +73,7 @@ namespace HamiIO
                         switch (modelPropertiese.Type)
                         {
                             case "string":
-                                AddTxt(ref content, $"=\"{modelPropertiese.Value}\";", 2);
+                                AddTxt(ref content, $"=$\"{modelPropertiese.Value}\";", 2);
                                 break;
                             case "float":
                                 AddTxt(ref content, $"={modelPropertiese.Value}f;", 2);
