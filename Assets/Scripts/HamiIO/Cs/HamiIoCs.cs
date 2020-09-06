@@ -67,7 +67,7 @@ namespace HamiIO
                     AddTxt(ref content, modelPropertiese.Type);
                     AddTxt(ref content, modelPropertiese.Name);
                     if (modelPropertiese.AutoProperty)
-                        AddTxt(ref content, "{ get; set; }");
+                        AddTxt(ref content, "{ get; set; }", 2);
                     if (modelPropertiese.Value != null)
                     {
                         switch (modelPropertiese.Type)
@@ -85,8 +85,8 @@ namespace HamiIO
                                 AddTxt(ref content, $"={modelPropertiese.Value};", 2);
                                 break;
                         }
-                    } 
-                    else if(!modelPropertiese.AutoProperty)
+                    }
+                    else if (!modelPropertiese.AutoProperty)
                         AddTxt(ref content, ";", 2);
                 }
 
