@@ -63,6 +63,7 @@ namespace HamiIO
                     AddTxt(ref content, modelPropertiese.Attribute, 1, 1, true);
                     AddTxt(ref content, "public", 0, 1);
                     if (modelPropertiese.IsStatic) AddTxt(ref content, "static");
+                    if (modelPropertiese.ReadOnly) AddTxt(ref content, "readonly");
                     AddTxt(ref content, modelPropertiese.Type);
                     AddTxt(ref content, modelPropertiese.Name);
                     if (modelPropertiese.AutoProperty)

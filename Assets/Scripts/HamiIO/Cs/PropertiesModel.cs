@@ -8,5 +8,6 @@
         public bool AutoProperty;
         public object Value;
         public bool IsStatic;
+        public bool ReadOnly;
     }
 }
