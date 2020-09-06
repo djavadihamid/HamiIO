@@ -76,6 +76,8 @@ namespace HamiIO
                             AddTxt(ref content, $"={modelPropertiese.Value}f;", 2);
                         if (modelPropertiese.Type == "double")
                             AddTxt(ref content, $"={modelPropertiese.Value}d;", 2);
+                        else
+                            AddTxt(ref content, $"{modelPropertiese.Value};", 2);
                     }
                     else
                         AddTxt(ref content, ";", 2);
