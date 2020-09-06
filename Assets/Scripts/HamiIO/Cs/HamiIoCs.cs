@@ -70,14 +70,21 @@ namespace HamiIO
                         AddTxt(ref content, "{ get; set; }");
                     if (modelPropertiese.Value != null)
                     {
-                        if (modelPropertiese.Type == "string")
-                            AddTxt(ref content, $"=\"{modelPropertiese.Value}\";", 2);
-                        if (modelPropertiese.Type == "float")
-                            AddTxt(ref content, $"={modelPropertiese.Value}f;", 2);
-                        if (modelPropertiese.Type == "double")
-                            AddTxt(ref content, $"={modelPropertiese.Value}d;", 2);
-                        else
-                            AddTxt(ref content, $"{modelPropertiese.Value};", 2);
+                        switch (modelPropertiese.Type)
+                        {
+                            case "string":
+                                AddTxt(ref content, $"=\"{modelPropertiese.Value}\";", 2);
+                                break;
+                            case "float":
+                                AddTxt(ref content, $"={modelPropertiese.Value}f;", 2);
+                                break;
+                            case "double":
+                                AddTxt(ref content, $"={modelPropertiese.Value}d;", 2);
+                                break;
+                            default:
+                                AddTxt(ref content, $"={modelPropertiese.Value};", 2);
+                                break;
+                        }
                     }
                     else
                         AddTxt(ref content, ";", 2);
