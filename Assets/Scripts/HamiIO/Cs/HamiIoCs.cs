@@ -86,7 +86,7 @@ namespace HamiIO
                                 break;
                         }
                     } 
-                    else
+                    else if(!modelPropertiese.AutoProperty)
                         AddTxt(ref content, ";", 2);
                 }
 
