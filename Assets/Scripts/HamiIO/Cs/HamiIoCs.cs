@@ -71,11 +71,11 @@ namespace HamiIO
                     if (modelPropertiese.Value != null)
                     {
                         if (modelPropertiese.Type == "string")
-                            AddTxt(ref content, $"=\"{modelPropertiese.Value}\";");
+                            AddTxt(ref content, $"=\"{modelPropertiese.Value}\";", 2);
                         if (modelPropertiese.Type == "float")
-                            AddTxt(ref content, $"={modelPropertiese.Value}f;");
+                            AddTxt(ref content, $"={modelPropertiese.Value}f;", 2);
                         if (modelPropertiese.Type == "double")
-                            AddTxt(ref content, $"={modelPropertiese.Value}d;");
+                            AddTxt(ref content, $"={modelPropertiese.Value}d;", 2);
                     }
                     else
                         AddTxt(ref content, ";", 2);
