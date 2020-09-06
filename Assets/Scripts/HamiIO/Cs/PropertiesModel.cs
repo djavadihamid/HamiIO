@@ -6,5 +6,7 @@
         public string Type;
         public string Name;
         public bool AutoProperty;
+        public object Value;
+        public bool IsStatic;
     }
 }

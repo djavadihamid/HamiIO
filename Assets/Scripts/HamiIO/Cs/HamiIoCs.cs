@@ -62,10 +62,13 @@ namespace HamiIO
                 {
                     AddTxt(ref content, modelPropertiese.Attribute, 1, 1, true);
                     AddTxt(ref content, "public", 0, 1);
+                    if (modelPropertiese.IsStatic) AddTxt(ref content, "static");
                     AddTxt(ref content, modelPropertiese.Type);
                     AddTxt(ref content, modelPropertiese.Name);
                     if (modelPropertiese.AutoProperty)
                         AddTxt(ref content, "{ get; set; }");
+                    if (modelPropertiese.Value != null)
+                        AddTxt(ref content, $"={modelPropertiese.Value};");
                     else
                         AddTxt(ref content, ";", 2);
                 }
