@@ -8,10 +8,10 @@ namespace HamiIO
     {
         public static void Create<T>(string relativePath, string fileName) where T : ScriptableObject
         {
-            if (!Directory.Exists($"Assets/Resources/{relativePath}"))
-                Directory.CreateDirectory($"Assets/Resources/{relativePath}");
+            if (!Directory.Exists($"Assets/Resources/Modules/{relativePath}"))
+                Directory.CreateDirectory($"Assets/Resources/Modules/{relativePath}");
             T asset = CreateInstance<T>();
-            AssetDatabase.CreateAsset(asset, $"Assets/Resources/{relativePath}/{fileName}.asset");
+            AssetDatabase.CreateAsset(asset, $"Assets/Resources/Modules/{relativePath}/{fileName}.asset");
             AssetDatabase.SaveAssets();
             EditorUtility.FocusProjectWindow();
             Selection.activeObject = asset;
